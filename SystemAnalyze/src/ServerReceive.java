@@ -31,7 +31,7 @@ public class ServerReceive extends Thread{
 						System.out.println("Waiting..");
 							if (socket != null) {
 				                try {
-				                	is = new ObjectInputStream(new BufferedInputStream(socket.getInputStream()));
+				                	is = new ObjectInputStream(socket.getInputStream());
 								} catch (IOException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
@@ -39,6 +39,7 @@ public class ServerReceive extends Thread{
 				                 
 								try {
 									User user = (User)is.readObject();
+									System.out.println(user.name);
 									Server.qq.add(user);
 								}
 								catch (ClassNotFoundException e) {

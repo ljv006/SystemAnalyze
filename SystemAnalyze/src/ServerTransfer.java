@@ -38,16 +38,20 @@ public class ServerTransfer extends Thread {
             os = new ObjectOutputStream(MySocket.getOutputStream());
             //从控制层获取命令
             while (true) {
+            System.out.println("sending!");
             	Thread.sleep(1000);
             if (!Server.qq.isEmpty()) {
             	User user = Server.qq.peek();
+            	System.out.println(user.name);
+            	System.out.println(user.type);
             	if (Server.db.isfind(user) && user.type == "regist") {
             		user.type = "existed";
             		Server.qq.poll();
             	} else if (Server.db.isfind(user) && user.type == "login"){
             		user.type = "login_succeed";
             		Server.qq.poll();
-            	} else if (!Server.db.isfind(user) && user.type == "regist") {
+            	} else if (!Server.db.isfind(user) && user.type.equals("regist")) {
+            		System.out.println("hahah");
             		Server.db.insert(user);
             		user.type = "regist_succeed";
             		Server.qq.poll();
