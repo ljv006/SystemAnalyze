@@ -1,0 +1,34 @@
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Queue;
+import java.util.Stack;
+import java.*;
+import java.util.List;
+import java.io.*;
+public class Server {
+	public static List<Socket> socketList = Collections.synchronizedList(new ArrayList<>());
+	public static String ip = "172.18.41.171";
+	public static int Transfer_port = 10023;
+	public static int Receive_port = 10024;
+	public static StudentDatabase db = new StudentDatabase();
+	public static Queue<User> qq = new ArrayDeque<User>();
+	public static void main(String[] args) throws IOException{
+		ServerSocket ss = new ServerSocket(Receive_port);
+		while (true) {
+			Socket s = ss.accept();
+			socketList.add(s);
+			new Thread(new ServerThread(s)).start();
+		}
+		/*
+		ServerReceive sr = new ServerReceive();
+		ServerTransfer sf = new ServerTransfer();
+		sr.start();
+		sf.start();
+		*/
+		
+	}
+}
+

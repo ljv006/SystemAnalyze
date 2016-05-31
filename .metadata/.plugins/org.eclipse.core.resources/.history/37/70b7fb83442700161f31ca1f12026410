@@ -1,0 +1,74 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class mainWindow extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mainWindow frame = new mainWindow();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public mainWindow() {
+		JFrame f = new JFrame();
+		f.setBounds(100, 100, 450, 300);
+		f.getContentPane().setLayout(null);
+		JButton logout = new JButton("注销");
+		logout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(getContentPane(),
+						"注销成功!", "注销成功", JOptionPane.INFORMATION_MESSAGE);
+				close();
+				login lg = new login();
+				break;
+			}
+		});
+		logout.setBounds(343,10,91,38);
+		f.getContentPane().add(logout);
+		JLabel lblNewLabel = new JLabel("\u8BFE\u7A0B\u5217\u8868");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 0, 80, 30);
+		f.getContentPane().add(lblNewLabel);
+		
+		JList list = new JList();
+		list.setBounds(10, 37, 72, 215);
+		f.getContentPane().add(list);
+		
+		JButton button = new JButton("\u6CE8\u518C/\u521B\u5EFA\u8BFE\u7A0B");
+		button.setBounds(87, 37, 118, 38);
+		f.getContentPane().add(button);
+		
+		JButton btnNewButton = new JButton("\u8FDB\u5165\u7FA4\u7EC4");
+		btnNewButton.setBounds(87, 75, 118, 38);
+		f.getContentPane().add(btnNewButton);
+		f.setVisible(true);
+	}
+}
