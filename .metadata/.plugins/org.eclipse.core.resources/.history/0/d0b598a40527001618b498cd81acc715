@@ -1,0 +1,68 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.JList;
+
+public class mainWindow extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mainWindow frame = new mainWindow();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public mainWindow() {
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		JFrame f = new JFrame();
+		f.getContentPane().setLayout(null);
+		JButton bt1 = new JButton("ÍË³ö");
+		JButton bt2 = new JButton("×¢Ïú");
+		bt1.setBounds(343,0,91,38);
+		bt2.setBounds(343,37,91,38);
+		f.getContentPane().add(bt1);
+		f.getContentPane().add(bt2);
+		JLabel lblNewLabel = new JLabel("\u8BFE\u7A0B\u5217\u8868");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(0, 0, 80, 30);
+		f.getContentPane().add(lblNewLabel);
+		
+		JList list = new JList();
+		list.setBounds(10, 37, 72, 215);
+		f.getContentPane().add(list);
+		
+		JButton button = new JButton("\u6CE8\u518C/\u521B\u5EFA\u8BFE\u7A0B");
+		button.setBounds(87, 37, 118, 38);
+		f.getContentPane().add(button);
+		
+		JButton btnNewButton = new JButton("\u8FDB\u5165\u7FA4\u7EC4");
+		btnNewButton.setBounds(87, 75, 118, 38);
+		f.getContentPane().add(btnNewButton);
+		layout.addLayoutComponent(f);
+	}
+}

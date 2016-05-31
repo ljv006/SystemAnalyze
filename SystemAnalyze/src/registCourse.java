@@ -1,0 +1,68 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.ActionEvent;
+
+public class registCourse extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					registCourse frame = new registCourse();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	private void close() {
+        WindowEvent closeWin = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWin);
+    }
+	/**
+	 * Create the frame.
+	 */
+	public registCourse() {
+		JFrame f = new JFrame();
+		f.setBounds(100, 100, 450, 300);
+		f.getContentPane().setLayout(null);
+		JButton bt2 = new JButton("\u8FD4\u56DE");
+		bt2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				close();
+				mainWindow newMainWindow = new mainWindow();
+			}
+		});
+		bt2.setBounds(103,85,101,38);
+		f.getContentPane().add(bt2);
+		
+		JLabel lblNewLabel = new JLabel("\u6240\u6709\u8BFE\u7A0B\u5217\u8868");
+		lblNewLabel.setBounds(10, 6, 77, 26);
+		f.getContentPane().add(lblNewLabel);
+		
+		JList list = new JList();
+		list.setBounds(10, 37, 93, 215);
+		f.getContentPane().add(list);
+		
+		JButton btnNewButton = new JButton("\u6CE8\u518C");
+		btnNewButton.setBounds(103, 34, 102, 41);
+		f.getContentPane().add(btnNewButton);
+		f.setVisible(true);
+	}
+
+}

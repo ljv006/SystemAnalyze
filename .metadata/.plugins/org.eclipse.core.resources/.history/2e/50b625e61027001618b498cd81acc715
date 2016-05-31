@@ -1,0 +1,7 @@
+
+public class Command {
+	public String Login = "LOGIN";
+	public String Register = "REGISTER";
+	public String RegisterCourse = "REGISTERCOURSE";
+	
+}

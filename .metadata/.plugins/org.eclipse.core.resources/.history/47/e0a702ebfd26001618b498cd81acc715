@@ -1,0 +1,8 @@
+import java.awt.Toolkit;
+import java.awt.Event;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
+
+public class mainWindow {
+
+}

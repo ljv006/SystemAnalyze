@@ -1,0 +1,108 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JCheckBox;
+
+public class register extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					register frame = new register();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	private void close() {
+        WindowEvent closeWin = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWin);
+    }
+	/**
+	 * Create the frame.
+	 */
+	public register() {
+		JFrame f = new JFrame();
+		f.setBounds(100, 100, 450, 300);
+		f.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Register");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(171, 2, 84, 35);
+		f.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel = new JLabel("ID");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(96, 78, 54, 15);
+		f.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_2 = new JLabel("Password");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(96, 128, 54, 15);
+		f.getContentPane().add(lblNewLabel_2);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(179, 78, 95, 25);
+		f.getContentPane().add(textPane);
+		
+		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setBounds(179, 105, 95, 25);
+		f.getContentPane().add(textPane_1);
+		
+		JButton btnNewButton = new JButton("OK");
+		btnNewButton.setBounds(106, 167, 64, 35);
+		f.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Reset");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(217, 170, 84, 29);
+		f.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblName = new JLabel("Name");
+		lblName.setHorizontalAlignment(SwingConstants.CENTER);
+		lblName.setBounds(96, 103, 54, 15);
+		f.getContentPane().add(lblName);
+		
+		textField = new JTextField();
+		textField.setBounds(189, 100, 66, 21);
+		f.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Teacher");
+		chckbxNewCheckBox.setBounds(50, 43, 84, 23);
+		f.getContentPane().add(chckbxNewCheckBox);
+		
+		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Teaching Assitant");
+		chckbxNewCheckBox_1.setBounds(140, 43, 130, 23);
+		f.getContentPane().add(chckbxNewCheckBox_1);
+		
+		JCheckBox chckbxStudent = new JCheckBox("Student");
+		chckbxStudent.setBounds(281, 43, 103, 23);
+		f.getContentPane().add(chckbxStudent);
+		f.setVisible(true);
+	}
+}
